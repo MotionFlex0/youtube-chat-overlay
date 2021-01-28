@@ -1,0 +1,38 @@
+.yco-chat {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    /* background-color: rgb(19, 218, 208);
+    opacity: 0.6; */
+    pointer-events: none;
+}
+
+.yco-chat-item-list {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    /* background: darkblue;
+    opacity: 0.8 !important; */
+}
+
+.yco-chat-item {
+    position: relative;
+    margin-bottom: 20px;
+    width: 60%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: white !important;
+    opacity: 1 !important;
+}
+
+.yco-chat-item > span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+

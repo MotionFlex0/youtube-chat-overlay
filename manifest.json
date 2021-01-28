@@ -1,0 +1,23 @@
+{
+    "author": "MotionFlex0",
+    "name": "Youtube Chat Overlay",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "Overlays YouTube live chat onto video",
+    "permissions": [
+        "https://www.youtube.com/*"
+    ], 
+    "background": {
+        "persistent": false,
+        "page": "src/background.html"
+    },
+    "browser_action": {
+        "default_popup": "src/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.youtube.com/watch*"],
+            "js": ["src/js/content_scripts/youtube_overlay.js"]
+        }
+    ]
+  }
