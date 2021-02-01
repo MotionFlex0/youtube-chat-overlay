@@ -11,28 +11,56 @@
 
 .yco-chat-item-list {
     position: absolute;
-    top: 5%;
-    left: 5%;
+    top: 1%;
+    left: 20%;
     right: 5%;
-    bottom: 5%;
+    bottom: 8%;
+    overflow: hidden;
+    word-break: break-word;
     /* background: darkblue;
     opacity: 0.8 !important; */
 }
 
 .yco-chat-item {
     position: relative;
-    margin-bottom: 20px;
-    width: 60%;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    background-color: white !important;
+    margin-right: 26%; /* This needs to be 100% - max-width */
+    margin-bottom: 10px;
+    min-width: 10%;
+    max-width: 80%;
+    min-height: 10px;
+    padding: 0px 10px 2px 4px;
+    border-radius: 10px 40px 40px 10px;
+    display: inline-block;
+    text-align: left;
+    background-color: rgba(100, 100, 100, 0.7);
     opacity: 1 !important;
 }
 
 .yco-chat-item > span {
-    display: inline-block;
     vertical-align: middle;
     line-height: normal;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.yco-chat-item > .author-name {
+    color: var(--yt-live-chat-secondary-text-color)
+}
+
+.yco-chat-item > .message {
+    color: var(--yt-live-chat-primary-text-color, var(--yt-primary-text-color));
+    line-height: 16px;
+}
+
+.yco-chat-item > .display-name.member {
+    color: var(--yt-live-chat-sponsor-color);
+}
+
+.yco-chat-item > span > .emoji {
+    width: var(--yt-live-chat-emoji-size);
+    height: var(--yt-live-chat-emoji-size);
+    margin: -1px 2px 1px;
+    vertical-align: middle;
 }
 
