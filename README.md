@@ -1,2 +1,2 @@
 # youtube-chat-overlay
- Overlays YouTube live chat onto video
+ A web extension which overlays YouTube live chat onto video. Support Firefox and Chrome.
