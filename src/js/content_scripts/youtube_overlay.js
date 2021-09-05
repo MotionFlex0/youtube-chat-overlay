@@ -1,5 +1,5 @@
 const CHAT_ITEM_OBSERVER_OPTIONS = {
-    root: document.querySelector(".yco-chat-item-list"),
+    //root: document.querySelector(".yco-chat-item-list"),
     threshold: 0.1
 };
 
@@ -19,7 +19,7 @@ const interval = setInterval(() => {
             console.log("[youtube-chat-overlay] Something went wrong! Found chat frame but could not find chat app.");
         }
     }
-}, 5000)
+}, 10000)
 
 async function injectIntoPage(chatApp) {
     console.log(`This is the content script overlay..>! URL: ${window.location.href}`);
@@ -75,10 +75,11 @@ function chatObserverCallback(mutationList, observer) {
 }
 
 function chatItemIntersectionCallback(entries, observer) {
+    // console.log(entries[0]);
     entries.forEach(e => {
         if (e.intersectionRatio != 1) {
             // console.log("something has gone out of view. element: ", e.target.querySelector(".message").innerText)
-            e.target.remove();
+           e.target.remove();
         }
     });
 }
