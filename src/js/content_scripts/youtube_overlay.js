@@ -1,18 +1,18 @@
 const CHAT_ITEM_OBSERVER_OPTIONS = {
-    //root: document.querySelector(".yco-chat-item-list"),
-    threshold: 0.1
+    root: document.querySelector(".yco-chat-item-list"),
+    threshold: 0.5
 };
 
 const g_chatItemIntersectionObserver = new IntersectionObserver(chatItemIntersectionCallback, CHAT_ITEM_OBSERVER_OPTIONS);
 
-const interval = setInterval(() => {
+const interval = setInterval(async () => {
     console.log("In interval...");
     const chatFrame = document.querySelector("#chatframe");
     if (chatFrame) {
         const chatApp = chatFrame.contentDocument.querySelector("yt-live-chat-app");
         if (chatApp) {
             clearInterval(interval);
-            injectIntoPage(chatApp);
+            await injectIntoPage(chatApp);
             chatQueue.addSystemMessage("Successfully loaded!")
         }
         else {
@@ -36,7 +36,7 @@ async function injectIntoPage(chatApp) {
     
     const youtubePlayer = document.querySelector("#ytd-player");
     if (youtubePlayer.clientWidth > 0 && youtubePlayer.clientHeight > 0) {
-        fetch(chrome.runtime.getURL("/src/template/css/style.css"))
+        fetch(chrome.runtime.getURL("src/template/css/style.css"))
         .then(resp => resp.text())
         .then(css => {
             document.head.insertAdjacentHTML("beforeend", `<style>${css}</style>`);
@@ -45,7 +45,7 @@ async function injectIntoPage(chatApp) {
         // This is purely for testing. It prevents the chat overlay being loaded more than once.
         const chatOverlay = document.querySelector(".yco-chat");
         if (chatOverlay == null) {
-            fetch(chrome.runtime.getURL("/src/template/chat_overlay.html"))
+            fetch(chrome.runtime.getURL("src/template/chat_overlay.html"))
             .then(resp => resp.text())
             .then(template => {
                 youtubePlayer.insertAdjacentHTML("beforeend", template);
